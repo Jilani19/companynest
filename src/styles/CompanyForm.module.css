@@ -1,0 +1,142 @@
+/* CompanyForm.module.css */
+
+.container {
+  max-width: 600px;
+  margin: 4rem auto;
+  padding: 2rem;
+  background-color: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+  font-family: "Inter", sans-serif;
+}
+
+.heading {
+  font-size: 1.75rem;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  color: #1f2937;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.input {
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  width: 100%;
+  transition: border-color 0.2s ease;
+}
+
+.input:focus {
+  border-color: #3b82f6;
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+}
+
+.inputWarning {
+  border-color: #f87171 !important;
+  background-color: #fef2f2;
+}
+
+.button {
+  background-color: #3b82f6;
+  color: white;
+  border: none;
+  padding: 0.75rem;
+  font-size: 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.25s ease;
+}
+
+.button:disabled {
+  background-color: #9ca3af;
+  cursor: not-allowed;
+}
+
+.button:hover:not(:disabled) {
+  background-color: #2563eb;
+}
+
+.message {
+  margin-top: 1rem;
+  text-align: center;
+  font-weight: 500;
+  color: #10b981;
+}
+
+.warning {
+  color: #ef4444;
+  font-size: 0.9rem;
+  margin-top: -0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.adminLink {
+  margin-top: 2rem;
+  text-align: center;
+  font-size: 0.95rem;
+}
+
+.adminLink a {
+  color: #3b82f6;
+  text-decoration: none;
+}
+
+.adminLink a:hover {
+  text-decoration: underline;
+}
+
+/* Suggestions */
+.suggestionWrapper {
+  position: relative;
+}
+
+.suggestions {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: white;
+  border: 1px solid #d1d5db;
+  border-top: none;
+  border-radius: 0 0 8px 8px;
+  max-height: 200px;
+  overflow-y: auto;
+  z-index: 10;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+  animation: fadeIn 0.2s ease-in-out;
+}
+
+.suggestionItem {
+  padding: 0.75rem 1rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.suggestionItem:hover {
+  background-color: #f3f4f6;
+}
+
+.loader {
+  padding: 0.75rem 1rem;
+  color: #6b7280;
+  font-size: 0.95rem;
+}
+
+/* Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

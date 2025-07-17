@@ -1,0 +1,254 @@
+/* src/styles/AdminCompanyList.module.css */
+
+.container {
+  min-height: 100vh;
+  padding: 30px 40px;
+  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+  color: #fff;
+  font-family: "Inter", sans-serif;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.title {
+  font-size: 2.4rem;
+  font-weight: bold;
+  color: #ffffff;
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
+}
+
+.logoutBtn {
+  padding: 10px 16px;
+  border: none;
+  border-radius: 8px;
+  background: #ff4d4f;
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.logoutBtn:hover {
+  background: #e13c3e;
+}
+
+.toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-bottom: 30px;
+  align-items: center;
+}
+
+.searchInput,
+.selectDropdown {
+  padding: 10px 14px;
+  border-radius: 8px;
+  border: none;
+  font-size: 16px;
+  background: rgba(255, 255, 255, 0.1);
+  color: #0ca3ef;
+  outline: none;
+  transition: background 0.3s ease;
+}
+
+.searchInput::placeholder {
+  color: #dcdcdc;
+}
+
+.searchInput:focus,
+.selectDropdown:focus {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.toggleViewBtn {
+  padding: 10px 16px;
+  border: none;
+  border-radius: 8px;
+  background: #00c3ff;
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.toggleViewBtn:hover {
+  background: #3a7bd5;
+}
+
+/* CARD VIEW */
+.gridContainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+  animation: fadeIn 0.5s ease;
+}
+
+.card {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(10px);
+  border-radius: 16px;
+  padding: 20px;
+  transition: transform 0.3s ease;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+.card:hover {
+  transform: translateY(-4px);
+}
+
+.cardHeader {
+  margin-bottom: 12px;
+}
+
+.cardHeader h3 {
+  margin: 0;
+  font-size: 1.3rem;
+  color: #ffffff;
+}
+
+.cardHeader p {
+  margin: 4px 0 0;
+  font-size: 0.9rem;
+  color: #ccc;
+}
+
+.cardBody p {
+  margin: 6px 0;
+  color: #ddd;
+}
+
+.cardActions {
+  margin-top: 12px;
+  display: flex;
+  gap: 10px;
+}
+
+.editBtn,
+.deleteBtn {
+  flex: 1;
+  padding: 8px;
+  border: none;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.editBtn {
+  background: #00c3ff;
+  color: #fff;
+}
+
+.editBtn:hover {
+  background: #3a7bd5;
+}
+
+.deleteBtn {
+  background: #ff4d4f;
+  color: #fff;
+}
+
+.deleteBtn:hover {
+  background: #d9363e;
+}
+
+/* TABLE VIEW */
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  animation: fadeIn 0.5s ease;
+}
+
+.table th,
+.table td {
+  padding: 14px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  text-align: left;
+  color: #f0f0f0;
+}
+
+.table th {
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: #ccc;
+}
+
+.table a {
+  color: #00c3ff;
+  text-decoration: none;
+}
+
+.table a:hover {
+  text-decoration: underline;
+}
+
+.noData {
+  text-align: center;
+  color: #ccc;
+  padding: 20px;
+  font-style: italic;
+}
+
+/* PAGINATION */
+.pagination {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.pageBtn {
+  padding: 8px 14px;
+  border-radius: 6px;
+  border: none;
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.pageBtn:hover {
+  background: #00c3ff;
+}
+
+.activePage {
+  background: #00c3ff;
+  font-weight: bold;
+}
+
+/* ANIMATIONS */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive Tweaks */
+@media (max-width: 600px) {
+  .toolbar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .title {
+    font-size: 1.8rem;
+  }
+}
