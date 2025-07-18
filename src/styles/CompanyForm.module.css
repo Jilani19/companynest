@@ -1,10 +1,8 @@
-/* CompanyForm.module.css */
-
 .container {
   max-width: 600px;
   margin: 4rem auto;
   padding: 2rem;
-  background-color: #ffffff;
+  background-color: #5d87bc70;
   border-radius: 16px;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
   font-family: "Inter", sans-serif;
@@ -92,7 +90,7 @@
   text-decoration: underline;
 }
 
-/* Suggestions */
+/* Suggestions Dropdown */
 .suggestionWrapper {
   position: relative;
 }
@@ -106,17 +104,21 @@
   border: 1px solid #d1d5db;
   border-top: none;
   border-radius: 0 0 8px 8px;
-  max-height: 200px;
+  max-height: 220px;            /* Makes it scrollable if more items */
   overflow-y: auto;
-  z-index: 10;
+  z-index: 999;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
   animation: fadeIn 0.2s ease-in-out;
+  scroll-behavior: smooth;
 }
 
 .suggestionItem {
   padding: 0.75rem 1rem;
   cursor: pointer;
   transition: background-color 0.2s ease;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .suggestionItem:hover {
@@ -138,5 +140,132 @@
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+.formContainer {
+  max-width: 600px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background-color: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  color: #333;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+label {
+  font-weight: 600;
+  margin-bottom: 0.3rem;
+  color: #444;
+}
+
+.input,
+select,
+textarea {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  box-sizing: border-box;
+  background-color: #fff;
+  color: #333;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.input:focus,
+select:focus,
+textarea:focus {
+  border-color: #4caf50;
+}
+
+textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+/* City suggestions dropdown (scrollable) */
+.citySuggestions {
+  max-height: 150px;
+  overflow-y: auto;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  position: absolute;
+  z-index: 10;
+  width: 100%;
+  box-sizing: border-box;
+  border-radius: 4px;
+}
+
+.citySuggestions div {
+  padding: 0.6rem 1rem;
+  cursor: pointer;
+}
+
+.citySuggestions div:hover {
+  background-color: #f0f0f0;
+}
+
+/* Submit button */
+.button {
+  width: 100%;
+  padding: 0.9rem 1rem;
+  font-size: 1rem;
+  background-color: #4caf50;
+  color: white;
+  font-weight: bold;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.button:hover {
+  background-color: #45a049;
+}
+
+.button:disabled {
+  background-color: #a5d6a7;
+  cursor: not-allowed;
+}
+
+/* Success & Error Messages */
+.successMessage {
+  color: green;
+  margin-top: 1rem;
+  text-align: center;
+}
+
+.errorMessage {
+  color: red;
+  margin-top: 1rem;
+  text-align: center;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .formContainer {
+    padding: 1rem;
+  }
+
+  .input,
+  select,
+  textarea,
+  .button {
+    font-size: 0.95rem;
+    padding: 0.7rem;
   }
 }

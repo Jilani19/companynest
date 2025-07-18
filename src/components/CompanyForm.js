@@ -79,7 +79,7 @@ function CompanyForm() {
     setMessage("");
 
     try {
-      await API.post("/companies", formData);
+await API.post("/companies", formData);
       setMessage("✅ Company submitted successfully!");
       setFormData({
         companyName: "",

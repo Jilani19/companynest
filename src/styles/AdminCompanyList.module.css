@@ -252,3 +252,89 @@
     font-size: 1.8rem;
   }
 }
+.cityFilterWrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.cityFilterToggle {
+  padding: 8px 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  background-color: #0799e2;
+  cursor: pointer;
+  user-select: none;
+}
+
+.cityDropdown {
+  position: absolute;
+  top: 110%;
+  left: 0;
+  width: 180px;
+  border: 1px solid #ccc;
+  background-color: lightslategray;
+  z-index: 999;
+  border-radius: 6px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.cityScroll {
+  max-height: 160px;
+  overflow-y: auto;
+}
+
+.cityOption {
+  padding: 10px 12px;
+  cursor: pointer;
+}
+
+.cityOption:hover {
+  background-color: #0b5ed2;
+}
+.cityScroll {
+  max-height: 200px;
+  overflow-y: auto;
+}
+.linkWhite {
+  color: white;
+  text-decoration: none;
+}
+
+.linkWhite:hover {
+  text-decoration: underline;
+  color: #e0e0e0;
+}
+
+
+
+.table th,
+.table td {
+  padding: 16px 12px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  text-align: left;
+  color: #f0f0f0;
+  vertical-align: middle;
+  font-size: 0.95rem;
+}
+.table tbody tr:nth-child(even) {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+.table tbody tr:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+.editBtn,
+.deleteBtn {
+  flex: none;
+  padding: 6px 12px;
+  font-size: 0.85rem;
+  border-radius: 4px;
+}
+.table td > button,
+.table td > a > button {
+  margin-right: 6px;
+}
+.tableWrapper {
+  overflow-x: auto;
+  margin-top: 20px;
+}

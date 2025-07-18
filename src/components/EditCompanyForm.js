@@ -17,24 +17,25 @@ function EditCompanyForm() {
       navigate("/admin/login");
       return;
     }
-    fetchCompany();
-  }, []);
 
-  const fetchCompany = async () => {
-    try {
-      const res = await API.get("/companies", {
-        headers: { username, password },
-      });
-      const selected = res.data.find((item) => item._id === id);
-      if (selected) {
-        setFormData(selected);
-      } else {
-        setMessage("Company not found.");
+    const fetchCompany = async () => {
+      try {
+        const res = await API.get("/companies", {
+          headers: { username, password },
+        });
+        const selected = res.data.find((item) => item._id === id);
+        if (selected) {
+          setFormData(selected);
+        } else {
+          setMessage("Company not found.");
+        }
+      } catch (err) {
+        setMessage("❌ Failed to load company.");
       }
-    } catch (err) {
-      setMessage("❌ Failed to load company.");
-    }
-  };
+    };
+
+    fetchCompany();
+  }, [id, isLoggedIn, navigate, username, password]);
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });

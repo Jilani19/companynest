@@ -12,8 +12,9 @@ function AdminCompanyList() {
   const [city, setCity] = useState("");
   const [viewMode, setViewMode] = useState("card");
   const [cities, setCities] = useState([]);
+  const [showCityDropdown, setShowCityDropdown] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
-  const companiesPerPage = 6;
+  const companiesPerPage = 10; // ← updated from 6 to 10
 
   const navigate = useNavigate();
 
@@ -23,7 +24,7 @@ function AdminCompanyList() {
       return;
     }
     fetchCompanies();
-  }, []);
+  }, [isLoggedIn, navigate]);
 
   useEffect(() => {
     filterCompanies();
@@ -70,6 +71,11 @@ function AdminCompanyList() {
     }
   };
 
+  const handleCitySelect = (selectedCity) => {
+    setCity(selectedCity);
+    setShowCityDropdown(false);
+  };
+
   const indexOfLast = currentPage * companiesPerPage;
   const indexOfFirst = indexOfLast - companiesPerPage;
   const currentCompanies = filteredCompanies.slice(indexOfFirst, indexOfLast);
@@ -90,16 +96,38 @@ function AdminCompanyList() {
           value={search}
           onChange={(e) => setSearch(e.target.value)}
         />
-        <select
-          className={styles.selectDropdown}
-          value={city}
-          onChange={(e) => setCity(e.target.value)}
-        >
-          <option value="">All Cities</option>
-          {cities.map((c, i) => (
-            <option key={i} value={c}>{c}</option>
-          ))}
-        </select>
+
+        <div className={styles.cityFilterWrapper}>
+          <div
+            className={styles.cityFilterToggle}
+            onClick={() => setShowCityDropdown(!showCityDropdown)}
+          >
+            {city ? city : "All Cities"} ⏷
+          </div>
+
+          {showCityDropdown && (
+            <div className={styles.cityDropdown}>
+              <div
+                className={styles.cityOption}
+                onClick={() => handleCitySelect("")}
+              >
+                All Cities
+              </div>
+              <div className={styles.cityScroll}>
+                {cities.map((c, i) => (
+                  <div
+                    key={i}
+                    className={styles.cityOption}
+                    onClick={() => handleCitySelect(c)}
+                  >
+                    {c}
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+        </div>
+
         <button
           className={styles.toggleViewBtn}
           onClick={() => setViewMode(viewMode === "card" ? "table" : "card")}
@@ -119,7 +147,15 @@ function AdminCompanyList() {
                 </div>
                 <div className={styles.cardBody}>
                   <p>
-                    🌐 <a href={company.website} target="_blank" rel="noreferrer">{company.website}</a>
+                    🌐<a
+  href={company.website}
+  target="_blank"
+  rel="noreferrer"
+  className={styles.linkWhite}
+>
+  {company.website}
+</a>
+
                   </p>
                   <p>🧑‍💼 {company.createdBy}</p>
                 </div>
@@ -152,9 +188,15 @@ function AdminCompanyList() {
                 <tr key={company._id}>
                   <td>{company.companyName}</td>
                   <td>
-                    <a href={company.website} target="_blank" rel="noreferrer">
-                      {company.website}
-                    </a>
+                   <a
+  href={company.website}
+  target="_blank"
+  rel="noreferrer"
+  className={styles.linkWhite}
+>
+  {company.website}
+</a>
+
                   </td>
                   <td>{company.city}</td>
                   <td>{company.createdBy}</td>
